@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="../stylesheets/bootstrap.min.css"> 
   <link rel="stylesheet" href="../vendors/bootstrap-icons/bootstrap-icons.css"> 
   <link rel="stylesheet" href="../stylesheets/style.css">
+  <style>
+    .saving {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+  }
+
+  .saving strong {
+      font-size: 24px;
+      color: #23884b;
+  }
+
+  </style>
 </head>
 
 <body>
@@ -17,7 +31,7 @@
 
     <aside class="admin-sidebar" id="adminSidebar" aria-label="Main navigation">
       <div class="sidebar-header">
-        <a class="brand-mark" href="index.html" aria-label="adminHMD dashboard">
+        <a class="brand-mark" href="/" aria-label="adminHMD dashboard">
           <span class="brand-icon"><img src="/images/logo.png" style="height: 30px; width: 40px;"></span>
           <span class="brand-copy">
             <span class="brand-title">SmartEnergy</span>
@@ -27,31 +41,35 @@
       </div>
 
       <nav class="sidebar-nav">
-        <a class="nav-link active" href="index.html" aria-current="page">
+        <a class="nav-link active" href="/" aria-current="page">
           <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
           <span class="nav-text">Dashboard</span>
         </a>
-        <a class="nav-link" href="users.html">
+        <a class="nav-link" href="/EnergyMonitoring">
           <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
           <span class="nav-text">Energy Monitoring</span>
         </a>
-        <a class="nav-link" href="/SamrtSockets">
+        <a class="nav-link" href="/SmartSockets">
           <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
           <span class="nav-text">Smart Sockets</span>
         </a>
-        <a class="nav-link" href="profile.html">
+        <a class="nav-link" href="/Rooms">
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Rooms</span>
         </a>
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/AiInsights">
           <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
           <span class="nav-text">AI Insights</span>
         </a>
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/Analytics">
           <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
           <span class="nav-text">Analytics</span>
         </a>
-        <a class="nav-link" href="settings.html">
+        <a class="nav-link" href="/Alerts">
+          <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
+          <span class="nav-text">Alerts</span>
+        </a>
+        <a class="nav-link" href="/Settings">
           <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
           <span class="nav-text">Settings</span>
         </a>
@@ -124,7 +142,7 @@
               <article class="metric-card metric-primary">
                 <div class="metric-top">
                   <span class="metric-label">Total Energy</span>
-                  <span class="metric-icon"><i class="bi bi-currency-dollar" aria-hidden="true"></i></span>
+                  <span class="metric-icon"><iconify-icon icon="hugeicons:energy-ellipse" noobserver></iconify-icon></span>
                 </div>
                 <div class="metric-value">482 kwh</div>
                 <div class="metric-meta">
@@ -185,7 +203,7 @@
                     <h2 class="h5 mb-1 section-title"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span>Energy Usage (Today)</span></h2>
                     
                   </div>
-                  <a class="btn btn-light btn-sm" href="charts.html">View Details</a>
+                  <a class="btn btn-light btn-sm" href="/EnergyMonitoring">View Details</a>
                 </div>
 
                 <div class="chart-bars" aria-label="Sales performance chart">
@@ -203,116 +221,34 @@
               <div class="panel h-100">
                 <div class="panel-header">
                   <div>
-                    <h2 class="h5 mb-1 section-title"><i class="bi bi-activity" aria-hidden="true"></i><span>Team Activity</span></h2>
-                    <p class="text-muted mb-0">Recent operational updates.</p>
+                    <h2 class="h5 mb-1 section-title"><i class="bi bi-activity" aria-hidden="true"></i><span>AI Energy Insights</span></h2>
+                   
                   </div>
                 </div>
 
                 <div class="activity-list">
-                  <div class="activity-item"><span class="activity-dot bg-primary"></span><div><p class="mb-1 fw-semibold">New campaign launched</p><p class="text-muted small mb-0">Marketing team published the May offer.</p></div></div>
-                  <div class="activity-item"><span class="activity-dot bg-success"></span><div><p class="mb-1 fw-semibold">Payment batch cleared</p><p class="text-muted small mb-0">246 invoices were processed successfully.</p></div></div>
-                  <div class="activity-item"><span class="activity-dot bg-warning"></span><div><p class="mb-1 fw-semibold">Support queue rising</p><p class="text-muted small mb-0">Average first response time is 18 minutes.</p></div></div>
+                  <div class="activity-item"><span class="activity-dot bg-primary"></span><div><p class="mb-1 fw-semibold">Unnecessary Consumption Detected</p><p class="text-muted small mb-0">Room 204 appears to be unoccupied while
+                    3 connected appliances are still consuming power.</p></div></div>
+                  <div class="activity-item"><span class="activity-dot bg-success"></span><div><p class="mb-1 fw-semibold">Energy Saving Opportunity</p><p class="text-muted small mb-0">Switching off inactive appliances in Room 204
+                    could save approximately 2.1 kWh today.</p></div>
+                  </div>
+                  <div class="saving">
+
+                      <div>
+                          <small>Estimated monthly saving</small>
+                          <br>
+                          <strong>86 kWh</strong>
+                      </div>
+      
+                      <span style="font-size:35px; ">🌱</span>
+      
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
-          <section class="panel mt-3">
-            <div class="panel-header">
-              <div>
-                <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Recent Users</span></h2>
-                <p class="text-muted mb-0">Latest account activity across the workspace.</p>
-              </div>
-              <a class="btn btn-outline-secondary btn-sm" href="users.html">Manage Users</a>
-            </div>
-            <div class="table-responsive">
-              <table class="table align-middle mb-0">
-                <thead><tr><th scope="col">User</th><th scope="col">Role</th><th scope="col">Team</th><th scope="col">Status</th><th scope="col">Joined</th><th scope="col" class="text-end">Action</th></tr></thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-1.jpg" alt="Sarah Ahmed">
-                        <div>
-                          <p class="fw-semibold mb-0">Sarah Ahmed</p>
-                          <p class="text-muted small mb-0">sarah@example.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>Admin</td>
-                    <td>Operations</td>
-                    <td><span class="badge text-bg-success">Active</span></td>
-                    <td>Jan 12, 2026</td>
-                    <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-2.jpg" alt="Rafi Khan">
-                        <div>
-                          <p class="fw-semibold mb-0">Rafi Khan</p>
-                          <p class="text-muted small mb-0">rafi@example.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>Manager</td>
-                    <td>Sales</td>
-                    <td><span class="badge text-bg-success">Active</span></td>
-                    <td>Feb 03, 2026</td>
-                    <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-3.jpg" alt="Nadia Islam">
-                        <div>
-                          <p class="fw-semibold mb-0">Nadia Islam</p>
-                          <p class="text-muted small mb-0">nadia@example.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>Editor</td>
-                    <td>Content</td>
-                    <td><span class="badge text-bg-warning">Pending</span></td>
-                    <td>Mar 18, 2026</td>
-                    <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-4.jpg" alt="Mina Torres">
-                        <div>
-                          <p class="fw-semibold mb-0">Mina Torres</p>
-                          <p class="text-muted small mb-0">mina@example.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>Viewer</td>
-                    <td>Finance</td>
-                    <td><span class="badge text-bg-secondary">Suspended</span></td>
-                    <td>Apr 07, 2026</td>
-                    <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-5.jpg" alt="Jon Oliver">
-                        <div>
-                          <p class="fw-semibold mb-0">Jon Oliver</p>
-                          <p class="text-muted small mb-0">jon@example.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>Analyst</td>
-                    <td>Data</td>
-                    <td><span class="badge text-bg-success">Active</span></td>
-                    <td>Apr 22, 2026</td>
-                    <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+          
         </div>
       </main>
 
@@ -327,5 +263,6 @@
 
   <script src="../javascripts/bootstrap.bundle.min.js"></script> 
   <script src="../javascripts/main.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
 </body>
 </html>

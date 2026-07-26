@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Socket | Energy Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f5f7f6;
+            color: #1d2924;
+        }
+
+        /* ---------- HEADER ---------- */
+
+        header {
+            height: 70px;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e7e4;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 35px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+            color: #176b4d;
+        }
+
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .search {
+            width: 220px;
+            padding: 10px 15px;
+            border: 1px solid #d9dfdc;
+            border-radius: 9px;
+            outline: none;
+        }
+
+        .icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* ---------- MAIN ---------- */
+
+        main {
+            padding: 30px 35px;
+        }
+
+        .page-title {
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+            margin-bottom: 7px;
+        }
+
+        .page-title p {
+            color: #6c7772;
+            font-size: 14px;
+        }
+
+        /* ---------- SUMMARY CARDS ---------- */
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: white;
+            border: 1px solid #e3e8e5;
+            border-radius: 13px;
+            padding: 20px;
+        }
+
+        .summary-card span {
+            color: #737d79;
+            font-size: 13px;
+        }
+
+        .summary-card h2 {
+            margin-top: 9px;
+            font-size: 25px;
+        }
+
+        .green {
+            color: #168653;
+        }
+
+        .orange {
+            color: #d98519;
+        }
+
+        /* ---------- SOCKET SECTION ---------- */
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .section-title h2 {
+            font-size: 20px;
+        }
+
+        .filter {
+            padding: 9px 13px;
+            border: 1px solid #d7dedb;
+            border-radius: 8px;
+            background: white;
+        }
+
+        /* ---------- SOCKET GRID ---------- */
+
+        .socket-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .socket-card {
+            background: white;
+            border: 1px solid #e1e7e4;
+            border-radius: 15px;
+            padding: 20px;
+            transition: 0.2s;
+        }
+
+        .socket-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        }
+
+        .socket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .socket-name {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .status {
+            font-size: 12px;
+            padding: 5px 9px;
+            border-radius: 20px;
+        }
+
+        .online {
+            background: #e4f7ed;
+            color: #168653;
+        }
+
+        .offline {
+            background: #f2f2f2;
+            color: #777;
+        }
+
+        .socket-info {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .info-box {
+            background: #f7f9f8;
+            padding: 12px;
+            border-radius: 9px;
+        }
+
+        .info-box small {
+            color: #7b8581;
+            font-size: 11px;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        /* ---------- SWITCH ---------- */
+
+        .control {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .control-text {
+            font-size: 13px;
+            color: #707a76;
+        }
+
+        .switch {
+            position: relative;
+            width: 50px;
+            height: 27px;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            inset: 0;
+            background: #cdd4d1;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .slider:before {
+            content: "";
+            position: absolute;
+            height: 21px;
+            width: 21px;
+            left: 3px;
+            top: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        input:checked + .slider {
+            background: #168653;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(23px);
+        }
+
+        /* ---------- AI WARNING ---------- */
+
+        .ai-warning {
+            margin-top: 30px;
+            background: #fff8e8;
+            border: 1px solid #f1dfad;
+            border-radius: 13px;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ai-warning h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .ai-warning p {
+            font-size: 13px;
+            color: #6d6654;
+        }
+
+        .warning-btn {
+            border: none;
+            background: #e59a24;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+
+        @media (max-width: 1000px) {
+
+            .summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .socket-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            header {
+                padding: 0 15px;
+            }
+
+            .search {
+                width: 120px;
+            }
+
+            main {
+                padding: 20px 15px;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .socket-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-warning {
+                align-items: flex-start;
+                gap: 15px;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        ⚡ Smart Energy
+    </div>
+
+    <div class="top-right">
+
+        <input
+            class="search"
+            type="text"
+            placeholder="Search socket..."
+        >
+
+        <div class="icon">🔔</div>
+
+        <div class="icon">🌙</div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- PAGE TITLE -->
+
+    <div class="page-title">
+
+        <h1>Smart Sockets</h1>
+
+        <p>
+            Monitor and remotely control connected classroom appliances.
+        </p>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <span>Total Sockets</span>
+
+            <h2>12</h2>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>Currently ON</span>
+
+            <h2 class="green">7</h2>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>Currently OFF</span>
+
+            <h2>5</h2>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <span>Online Devices</span>
+
+            <h2 class="green">11/12</h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- SOCKETS -->
+
+    <div class="section-title">
+
+        <h2>Connected Sockets</h2>
+
+        <select class="filter">
+
+            <option>All Rooms</option>
+            <option>Room 101</option>
+            <option>Room 102</option>
+            <option>Room 103</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="socket-grid">
+
+
+        <!-- SOCKET 1 -->
+
+        <div class="socket-card">
+
+            <div class="socket-header">
+
+                <div class="socket-name">
+                    Classroom 101
+                </div>
+
+                <span class="status online">
+                    ● Online
+                </span>
+
+            </div>
+
+
+            <div class="socket-info">
+
+                <div class="info-box">
+
+                    <small>Device</small>
+
+                    <strong>Fan</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Power</small>
+
+                    <strong>72 W</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Voltage</small>
+
+                    <strong>230 V</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Mode</small>
+
+                    <strong>Auto</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="control">
+
+                <span class="control-text">
+                    Power Control
+                </span>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        checked
+                        onchange="toggleSocket(this, 'Classroom 101 - Fan')"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SOCKET 2 -->
+
+        <div class="socket-card">
+
+            <div class="socket-header">
+
+                <div class="socket-name">
+                    Classroom 102
+                </div>
+
+                <span class="status online">
+                    ● Online
+                </span>
+
+            </div>
+
+
+            <div class="socket-info">
+
+                <div class="info-box">
+
+                    <small>Device</small>
+
+                    <strong>Lights</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Power</small>
+
+                    <strong>145 W</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Voltage</small>
+
+                    <strong>229 V</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Mode</small>
+
+                    <strong>Auto</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="control">
+
+                <span class="control-text">
+                    Power Control
+                </span>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        checked
+                        onchange="toggleSocket(this, 'Classroom 102 - Lights')"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SOCKET 3 -->
+
+        <div class="socket-card">
+
+            <div class="socket-header">
+
+                <div class="socket-name">
+                    Classroom 103
+                </div>
+
+                <span class="status online">
+                    ● Online
+                </span>
+
+            </div>
+
+
+            <div class="socket-info">
+
+                <div class="info-box">
+
+                    <small>Device</small>
+
+                    <strong>Fan</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Power</small>
+
+                    <strong>0 W</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Voltage</small>
+
+                    <strong>231 V</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Mode</small>
+
+                    <strong>Auto</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="control">
+
+                <span class="control-text">
+                    Power Control
+                </span>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        onchange="toggleSocket(this, 'Classroom 103 - Fan')"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SOCKET 4 -->
+
+        <div class="socket-card">
+
+            <div class="socket-header">
+
+                <div class="socket-name">
+                    Classroom 104
+                </div>
+
+                <span class="status offline">
+                    ● Offline
+                </span>
+
+            </div>
+
+
+            <div class="socket-info">
+
+                <div class="info-box">
+
+                    <small>Device</small>
+
+                    <strong>Lights</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Power</small>
+
+                    <strong>—</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Voltage</small>
+
+                    <strong>—</strong>
+
+                </div>
+
+                <div class="info-box">
+
+                    <small>Mode</small>
+
+                    <strong>Offline</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="control">
+
+                <span class="control-text">
+                    Power Control
+                </span>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        disabled
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- AI WARNING -->
+
+    <div class="ai-warning">
+
+        <div>
+
+            <h3>⚠️ AI Energy Alert</h3>
+
+            <p>
+                Classroom 102 appears empty but lights are consuming
+                145 W. Automatic shutdown will be recommended.
+            </p>
+
+        </div>
+
+        <button
+            class="warning-btn"
+            onclick="turnOffAll()"
+        >
+            Turn OFF
+        </button>
+
+    </div>
+
+</main>
+
+
+<script>
+
+    function toggleSocket(element, socketName) {
+
+        if (element.checked) {
+
+            console.log(socketName + " → ON");
+
+            alert(socketName + " switched ON");
+
+        } else {
+
+            console.log(socketName + " → OFF");
+
+            alert(socketName + " switched OFF");
+
+        }
+
+    }
+
+
+    function turnOffAll() {
+
+        alert(
+            "AI action: Appliances in the empty classroom have been switched OFF."
+        );
+
+    }
+
+</script>
+
+</body>
+</html>

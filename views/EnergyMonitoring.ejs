@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="adminHMD professional admin dashboard template">
+  <title>Energy Monitoring</title>
+
+  <link rel="stylesheet" href="../stylesheets/bootstrap.min.css"> 
+  <link rel="stylesheet" href="../vendors/bootstrap-icons/bootstrap-icons.css"> 
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  
+</head>
+
+<body>
+  <div class="admin-shell">
+    <div class="sidebar-backdrop" data-sidebar-close></div>
+
+    <aside class="admin-sidebar" id="adminSidebar" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <a class="brand-mark" href="/" aria-label="adminHMD dashboard">
+          <span class="brand-icon"><img src="/images/logo.png" style="height: 30px; width: 40px;"></span>
+          <span class="brand-copy">
+            <span class="brand-title">SmartEnergy</span>
+            <span class="brand-subtitle">IoT Platform</span>
+          </span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link " href="/" >
+          <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
+          <span class="nav-text">Dashboard</span>
+        </a>
+        <a class="nav-link active" href="/EnergyMonitoring" aria-current="page">
+          <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+          <span class="nav-text">Energy Monitoring</span>
+        </a>
+        <a class="nav-link" href="/SmartSockets">
+          <span class="nav-icon"><iconify-icon icon="hugeicons:energy-ellipse" noobserver></iconify-icon></span>
+          <span class="nav-text">Smart Sockets</span>
+        </a>
+        <a class="nav-link" href="/Rooms">
+          <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
+          <span class="nav-text">Rooms</span>
+        </a>
+        <a class="nav-link" href="/AiInsights">
+          <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
+          <span class="nav-text">AI Insights</span>
+        </a>
+        <a class="nav-link" href="/Analytics">
+          <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
+          <span class="nav-text">Analytics</span>
+        </a>
+        <a class="nav-link" href="/Alerts">
+          <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
+          <span class="nav-text">Alerts</span>
+        </a>
+        <a class="nav-link" href="/Settings">
+          <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
+          <span class="nav-text">Settings</span>
+        </a>
+        
+      </nav>
+
+     
+    </aside>
+
+    <div class="admin-main">
+      <nav class="navbar admin-navbar navbar-expand bg-white">
+        <div class="container-fluid px-3 px-lg-4">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-controls="adminSidebar" aria-expanded="true" aria-label="Toggle sidebar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
+            <input class="form-control search-input" type="search" placeholder="Search devices, rooms, alerts..." aria-label="Search">
+          </form>
+
+          <div class="navbar-actions ms-auto">
+            <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
+              <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
+            </button>
+            <div class="dropdown">
+              <button class="icon-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+                <span class="notification-dot"></span>
+                <i class="bi bi-bell" aria-hidden="true"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end notification-menu">
+                <div class="dropdown-header fw-bold text-body">Notifications</div>
+                <a class="dropdown-item" href="users.html">
+                  <span class="notification-title">New user registered</span>
+                  <span class="notification-time">4 minutes ago</span>
+                </a>
+                <a class="dropdown-item" href="charts.html">
+                  <span class="notification-title">Revenue target reached</span>
+                  <span class="notification-time">32 minutes ago</span>
+                </a>
+                <a class="dropdown-item" href="settings.html">
+                  <span class="notification-title">Security review completed</span>
+                  <span class="notification-time">1 hour ago</span>
+                </a>
+              </div>
+            </div>
+
+           
+          </div>
+        </div>
+      </nav>
+
+      <main class="dashboard-content">
+        <div class="container-fluid px-3 px-lg-4 py-4">
+          <div class="page-heading">
+            <div class="page-heading-copy">
+              <span class="page-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
+              <div>
+                <h1 class="h3 mb-1">Energy Monitoring</h1>
+                <p class="eyebrow mb-1">Real time energy cunsumption and power metrics</p>
+                
+                
+              </div>
+            </div>
+            
+          </div>
+
+          <section class="row g-3 mt-1" aria-label="Dashboard metrics">
+            <div class="col-12 col-sm-6 col-xl-3">
+              <article class="metric-card metric-primary">
+                <div class="metric-top">
+                  <span class="metric-label">Today's Consumption </span>
+                  <span class="metric-icon"><i class="bi bi-currency-dollar" aria-hidden="true"></i></span>
+                </div>
+                <div class="metric-value" class="value">38.6 kWh</div>
+                <div class="metric-meta">
+                  <span class="text-success">↓ 18.4% </span>
+                  <span>vs yesterday</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <article class="metric-card metric-success">
+                <div class="metric-top">
+                  <span class="metric-label">Current Power</span>
+                  <span class="metric-icon"><i class="bi bi-bag-check" aria-hidden="true"></i></span>
+                </div>
+                <div class="metric-value" class="value">2.84 kW</div>
+                <div class="metric-meta">
+                  <span class="text-success">Live</span>
+                  <span>monitoring</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <article class="metric-card metric-warning">
+                <div class="metric-top">
+                  <span class="metric-label">Energy Saved</span>
+                  <span class="metric-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+                </div>
+                <div class="metric-value" class="value">11.2 kWh</div>
+                <div class="metric-meta">
+                  <span class="text-success">↑ 23% </span>
+                  <span>this week </span>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+              <article class="metric-card metric-danger">
+                <div class="metric-top">
+                  <span class="metric-label">Active Sockets</span>
+                  <span class="metric-icon"><i class="bi bi-life-preserver" aria-hidden="true"></i></span>
+                </div>
+                <div class="metric-value" class="value" >14 / 20</div>
+                <div class="metric-meta">
+                  <span class="text-danger">6 </span>
+                  <span>sockets inactive</span>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="row g-3 mt-1">
+            <div class=>
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h2 class="h5 mb-1 section-title"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span>Energy Usage (Today)</span></h2>
+                    
+                  </div>
+                  <a class="btn btn-light btn-sm" href="charts.html">View Details</a>
+                </div>
+
+                <div class="chart-bars" aria-label="Sales performance chart">
+                  <div class="chart-column bar-42"><span></span><small>09:00 AM</small></div>
+                  <div class="chart-column bar-58"><span></span><small>10:00 AM</small></div>
+                  <div class="chart-column bar-51"><span></span><small>11:00 AM</small></div>
+                  <div class="chart-column bar-72"><span></span><small>12:00 PM</small></div>
+                  <div class="chart-column bar-66"><span></span><small>01:00 PM</small></div>
+                  <div class="chart-column bar-83"><span></span><small>02:00 PM</small></div>
+                  
+                </div>
+              </div>
+            </div>
+
+           
+          </section>
+
+          <section class="panel mt-3">
+            <div class="panel-header">
+              <div>
+                <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Room-wise Energy Monitoring</span></h2>
+                
+              </div>
+              <a class="btn btn-outline-secondary btn-sm" >Live data</a>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead><tr><th scope="col">Rooms</th><th scope="col">Occupancy</th><th scope="col">Power</th><th scope="col">Today's Usage</th><th scope="col">AI Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Classroom 101</strong></td>
+                        <td>Occupied</td>
+                        <td>0.82 kW</td>
+                        <td>8.4 kWh</td>
+                        <td><span class="status normal">Normal</span></td>
+                    </tr>
+    
+                    <tr>
+                        <td><strong>Classroom 102</strong></td>
+                        <td>Empty</td>
+                        <td>0.64 kW</td>
+                        <td>7.8 kWh</td>
+                        <td><span class="status danger">Waste Detected</span></td>
+                    </tr>
+    
+                    <tr>
+                        <td><strong>Classroom 103</strong></td>
+                        <td>Occupied</td>
+                        <td>0.91 kW</td>
+                        <td>9.1 kWh</td>
+                        <td><span class="status normal">Normal</span></td>
+                    </tr>
+    
+                    <tr>
+                        <td><strong>Lab 201</strong></td>
+                        <td>Partially Occupied</td>
+                        <td>0.47 kW</td>
+                        <td>6.2 kWh</td>
+                        <td><span class="status warning">Check Usage</span></td>
+                    </tr>
+    
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="admin-footer">
+        <div class="container-fluid px-3 px-lg-4">
+          <span>Copyright Code-N-Play <br> Developed by <a target="_blank" class="fw-bold text-success" href="https://github.com/HasanMahmudDev">Neeraj</a> • Distributed by <a target="_blank" class="fw-bold text-success" href="https://themewagon.com">Code-N-Play</a> </span>
+          
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+
+    // Simple date filter demonstration
+    const dateSelect = document.querySelector(".date-select");
+
+    dateSelect.addEventListener("change", function () {
+
+        console.log("Selected period:", this.value);
+
+        // Later you can connect this with your backend/API
+        // to load actual energy data.
+    });
+
+
+    // Demo live power update
+    setInterval(() => {
+
+        const power = (2.5 + Math.random() * 0.7).toFixed(2);
+
+        const powerCards = document.querySelectorAll(".value");
+
+        // Current Power is the second card
+        powerCards[1].innerText = power + " kW";
+
+    }, 5000);
+
+  </script>
+
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+
+  <script src="../javascripts/bootstrap.bundle.min.js"></script> 
+  <script src="../javascripts/main.js"></script>
+</body>
+</html>
