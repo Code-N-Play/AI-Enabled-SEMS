@@ -15,10 +15,6 @@ app.get('/EnergyMonitoring', (req, res) => {
 app.get('/SmartSockets', (req, res) => {
     res.render("SmartSockets")
 })
-
-app.get('/Rooms', (req, res) => {
-    res.render("Rooms")
-})
   
 app.get('/AiInsights', (req, res) => {
       res.render("AiInsights")

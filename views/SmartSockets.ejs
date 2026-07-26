@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="adminHMD professional admin dashboard template">
-  <title>Energy Monitoring</title>
+  <title>Smart Sockets</title>
 
   <link rel="stylesheet" href="../stylesheets/bootstrap.min.css"> 
   <link rel="stylesheet" href="../vendors/bootstrap-icons/bootstrap-icons.css"> 
@@ -130,7 +130,45 @@
     input:checked + .slider:before {
         transform: translateX(23px);
     }
+    /* ---------- SUMMARY CARDS ---------- */
 
+    .summary {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-bottom: 30px;
+    }
+
+    .summary-card {
+        background: white;
+        border: 1px solid #e3e8e5;
+        border-radius: 13px;
+        padding: 20px;
+    }
+    .summary-card:hover{
+        background: rgb(230, 252, 236);
+        border: 1px solid #008332;
+        border-radius: 13px;
+        padding: 20px;
+    }
+
+    .summary-card span {
+        color: #737d79;
+        font-size: 13px;
+    }
+
+    .summary-card h2 {
+        margin-top: 9px;
+        font-size: 25px;
+    }
+
+    .green {
+        color: #168653;
+    }
+
+    .orange {
+        color: #d98519;
+    }
   </style>
   
 </head>
@@ -163,10 +201,7 @@
           <span class="nav-icon"><iconify-icon icon="hugeicons:energy-ellipse" noobserver></iconify-icon></span>
           <span class="nav-text">Smart Sockets</span>
         </a>
-        <a class="nav-link" href="/Rooms">
-          <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
-          <span class="nav-text">Rooms</span>
-        </a>
+        
         <a class="nav-link" href="/AiInsights">
           <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
           <span class="nav-text">AI Insights</span>
@@ -203,9 +238,7 @@
           </form>
 
           <div class="navbar-actions ms-auto">
-            <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
-              <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
-            </button>
+            
             <div class="dropdown">
               <button class="icon-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
                 <span class="notification-dot"></span>
@@ -247,7 +280,44 @@
             
           </div>
 
-          
+          <div class="summary">
+
+            <div class="summary-card">
+    
+                <span>Total Sockets</span>
+    
+                <h2>12</h2>
+    
+            </div>
+    
+    
+            <div class="summary-card">
+    
+                <span>Currently ON</span>
+    
+                <h2 class="green">7</h2>
+    
+            </div>
+    
+    
+            <div class="summary-card">
+    
+                <span>Currently OFF</span>
+    
+                <h2>5</h2>
+    
+            </div>
+    
+    
+            <div class="summary-card">
+    
+                <span>Online Devices</span>
+    
+                <h2 class="green">11/12</h2>
+    
+            </div>
+    
+        </div>
 
           <section class="row g-3 mt-1">
             <div class="socket-grid">
@@ -560,6 +630,615 @@
                     </div>
         
                 </div>
+
+                <!-- SOCKET 5 -->
+        
+                <div class="socket-card">
+        
+                    <div class="socket-header">
+        
+                        <div class="socket-name">
+                            Classroom 105
+                        </div>
+        
+                        <span class="status online">
+                            ● Online
+                        </span>
+        
+                    </div>
+        
+        
+                    <div class="socket-info">
+        
+                        <div class="info-box">
+        
+                            <small>Device</small>
+        
+                            <strong>Fan</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Power</small>
+        
+                            <strong>0 W</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Voltage</small>
+        
+                            <strong>231 V</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Mode</small>
+        
+                            <strong>Auto</strong>
+        
+                        </div>
+        
+                    </div>
+        
+        
+                    <div class="control">
+        
+                        <span class="control-text">
+                            Power Control
+                        </span>
+        
+                        <label class="switch">
+        
+                            <input
+                                type="checkbox"
+                                onchange="toggleSocket(this, 'Classroom 103 - Fan')"
+                            >
+        
+                            <span class="slider"></span>
+        
+                        </label>
+        
+                    </div>
+        
+                </div>
+                <!-- SOCKET 6 -->
+        
+                <div class="socket-card">
+        
+                    <div class="socket-header">
+        
+                        <div class="socket-name">
+                            Classroom 106
+                        </div>
+        
+                        <span class="status online">
+                            ● Online
+                        </span>
+        
+                    </div>
+        
+        
+                    <div class="socket-info">
+        
+                        <div class="info-box">
+        
+                            <small>Device</small>
+        
+                            <strong>Fan</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Power</small>
+        
+                            <strong>0 W</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Voltage</small>
+        
+                            <strong>231 V</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Mode</small>
+        
+                            <strong>Auto</strong>
+        
+                        </div>
+        
+                    </div>
+        
+        
+                    <div class="control">
+        
+                        <span class="control-text">
+                            Power Control
+                        </span>
+        
+                        <label class="switch">
+        
+                            <input
+                                type="checkbox"
+                                onchange="toggleSocket(this, 'Classroom 103 - Fan')"
+                            >
+        
+                            <span class="slider"></span>
+        
+                        </label>
+        
+                    </div>
+        
+                </div>
+                <!-- SOCKET 7 -->
+        
+                <div class="socket-card">
+        
+                    <div class="socket-header">
+        
+                        <div class="socket-name">
+                            Classroom 107
+                        </div>
+        
+                        <span class="status online">
+                            ● Online
+                        </span>
+        
+                    </div>
+        
+        
+                    <div class="socket-info">
+        
+                        <div class="info-box">
+        
+                            <small>Device</small>
+        
+                            <strong>Fan</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Power</small>
+        
+                            <strong>72 W</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Voltage</small>
+        
+                            <strong>230 V</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Mode</small>
+        
+                            <strong>Auto</strong>
+        
+                        </div>
+        
+                    </div>
+        
+        
+                    <div class="control">
+        
+                        <span class="control-text">
+                            Power Control
+                        </span>
+        
+                        <label class="switch">
+        
+                            <input
+                                type="checkbox"
+                                checked
+                                onchange="toggleSocket(this, 'Classroom 101 - Fan')"
+                            >
+        
+                            <span class="slider"></span>
+        
+                        </label>
+        
+                    </div>
+        
+                </div>
+        
+        
+        
+                <!-- SOCKET 8 -->
+        
+                <div class="socket-card">
+        
+                    <div class="socket-header">
+        
+                        <div class="socket-name">
+                            Classroom 108
+                        </div>
+        
+                        <span class="status online">
+                            ● Online
+                        </span>
+        
+                    </div>
+        
+        
+                    <div class="socket-info">
+        
+                        <div class="info-box">
+        
+                            <small>Device</small>
+        
+                            <strong>Lights</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Power</small>
+        
+                            <strong>145 W</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Voltage</small>
+        
+                            <strong>229 V</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Mode</small>
+        
+                            <strong>Auto</strong>
+        
+                        </div>
+        
+                    </div>
+        
+        
+                    <div class="control">
+        
+                        <span class="control-text">
+                            Power Control
+                        </span>
+        
+                        <label class="switch">
+        
+                            <input
+                                type="checkbox"
+                                checked
+                                onchange="toggleSocket(this, 'Classroom 102 - Lights')"
+                            >
+        
+                            <span class="slider"></span>
+        
+                        </label>
+        
+                    </div>
+        
+                </div>
+                <!-- SOCKET 9 -->
+        
+                <div class="socket-card">
+        
+                    <div class="socket-header">
+        
+                        <div class="socket-name">
+                            Classroom 109
+                        </div>
+        
+                        <span class="status online">
+                            ● Online
+                        </span>
+        
+                    </div>
+        
+        
+                    <div class="socket-info">
+        
+                        <div class="info-box">
+        
+                            <small>Device</small>
+        
+                            <strong>Fan</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Power</small>
+        
+                            <strong>72 W</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Voltage</small>
+        
+                            <strong>230 V</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Mode</small>
+        
+                            <strong>Auto</strong>
+        
+                        </div>
+        
+                    </div>
+        
+        
+                    <div class="control">
+        
+                        <span class="control-text">
+                            Power Control
+                        </span>
+        
+                        <label class="switch">
+        
+                            <input
+                                type="checkbox"
+                                checked
+                                onchange="toggleSocket(this, 'Classroom 101 - Fan')"
+                            >
+        
+                            <span class="slider"></span>
+        
+                        </label>
+        
+                    </div>
+        
+                </div>
+        
+        
+        
+                <!-- SOCKET 10 -->
+        
+                <div class="socket-card">
+        
+                    <div class="socket-header">
+        
+                        <div class="socket-name">
+                            Classroom 110
+                        </div>
+        
+                        <span class="status online">
+                            ● Online
+                        </span>
+        
+                    </div>
+        
+        
+                    <div class="socket-info">
+        
+                        <div class="info-box">
+        
+                            <small>Device</small>
+        
+                            <strong>Lights</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Power</small>
+        
+                            <strong>145 W</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Voltage</small>
+        
+                            <strong>229 V</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Mode</small>
+        
+                            <strong>Auto</strong>
+        
+                        </div>
+        
+                    </div>
+        
+        
+                    <div class="control">
+        
+                        <span class="control-text">
+                            Power Control
+                        </span>
+        
+                        <label class="switch">
+        
+                            <input
+                                type="checkbox"
+                                checked
+                                onchange="toggleSocket(this, 'Classroom 102 - Lights')"
+                            >
+        
+                            <span class="slider"></span>
+        
+                        </label>
+        
+                    </div>
+        
+                </div>
+                <!-- SOCKET 11 -->
+        
+                <div class="socket-card">
+        
+                    <div class="socket-header">
+        
+                        <div class="socket-name">
+                            Classroom 111
+                        </div>
+        
+                        <span class="status online">
+                            ● Online
+                        </span>
+        
+                    </div>
+        
+        
+                    <div class="socket-info">
+        
+                        <div class="info-box">
+        
+                            <small>Device</small>
+        
+                            <strong>Lights</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Power</small>
+        
+                            <strong>145 W</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Voltage</small>
+        
+                            <strong>229 V</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Mode</small>
+        
+                            <strong>Auto</strong>
+        
+                        </div>
+        
+                    </div>
+        
+        
+                    <div class="control">
+        
+                        <span class="control-text">
+                            Power Control
+                        </span>
+        
+                        <label class="switch">
+        
+                            <input
+                                type="checkbox"
+                                checked
+                                onchange="toggleSocket(this, 'Classroom 102 - Lights')"
+                            >
+        
+                            <span class="slider"></span>
+        
+                        </label>
+        
+                    </div>
+        
+                </div>
+        
+        
+        
+                <!-- SOCKET 12 -->
+        
+                <div class="socket-card">
+        
+                    <div class="socket-header">
+        
+                        <div class="socket-name">
+                            Classroom 112
+                        </div>
+        
+                        <span class="status online">
+                            ● Online
+                        </span>
+        
+                    </div>
+        
+        
+                    <div class="socket-info">
+        
+                        <div class="info-box">
+        
+                            <small>Device</small>
+        
+                            <strong>Fan</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Power</small>
+        
+                            <strong>0 W</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Voltage</small>
+        
+                            <strong>231 V</strong>
+        
+                        </div>
+        
+                        <div class="info-box">
+        
+                            <small>Mode</small>
+        
+                            <strong>Auto</strong>
+        
+                        </div>
+        
+                    </div>
+        
+        
+                    <div class="control">
+        
+                        <span class="control-text">
+                            Power Control
+                        </span>
+        
+                        <label class="switch">
+        
+                            <input
+                                type="checkbox"
+                                onchange="toggleSocket(this, 'Classroom 103 - Fan')"
+                            >
+        
+                            <span class="slider"></span>
+        
+                        </label>
+        
+                    </div>
+        
+                </div>
+        
+        
         
         
             </div>
@@ -568,54 +1247,7 @@
            
           </section>
 
-          <section class="panel mt-3">
-            <div class="panel-header">
-              <div>
-                <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Room-wise Energy Monitoring</span></h2>
-                
-              </div>
-              <a class="btn btn-outline-secondary btn-sm" >Live data</a>
-            </div>
-            <div class="table-responsive">
-              <table class="table align-middle mb-0">
-                <thead><tr><th scope="col">Rooms</th><th scope="col">Occupancy</th><th scope="col">Power</th><th scope="col">Today's Usage</th><th scope="col">AI Status</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Classroom 101</strong></td>
-                        <td>Occupied</td>
-                        <td>0.82 kW</td>
-                        <td>8.4 kWh</td>
-                        <td><span class="status normal">Normal</span></td>
-                    </tr>
-    
-                    <tr>
-                        <td><strong>Classroom 102</strong></td>
-                        <td>Empty</td>
-                        <td>0.64 kW</td>
-                        <td>7.8 kWh</td>
-                        <td><span class="status danger">Waste Detected</span></td>
-                    </tr>
-    
-                    <tr>
-                        <td><strong>Classroom 103</strong></td>
-                        <td>Occupied</td>
-                        <td>0.91 kW</td>
-                        <td>9.1 kWh</td>
-                        <td><span class="status normal">Normal</span></td>
-                    </tr>
-    
-                    <tr>
-                        <td><strong>Lab 201</strong></td>
-                        <td>Partially Occupied</td>
-                        <td>0.47 kW</td>
-                        <td>6.2 kWh</td>
-                        <td><span class="status warning">Check Usage</span></td>
-                    </tr>
-    
-                </tbody>
-              </table>
-            </div>
-          </section>
+          
         </div>
       </main>
 
