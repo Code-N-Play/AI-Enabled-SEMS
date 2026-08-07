@@ -1616,3 +1616,166 @@ html[data-theme="dark"] {
   border-top-color: var(--admin-sidebar-border);
   color: var(--admin-sidebar-text);
 }
+
+
+.sockets-list  .socket-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sockets-list  .socket-card {
+  background: white;
+  border: 1px solid #e1e7e4;
+  border-radius: 15px;
+  padding: 20px;
+  transition: 0.2s;
+}
+
+.sockets-list  .socket-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.sockets-list  .socket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sockets-list  .socket-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.sockets-list  .status {
+  font-size: 12px;
+  padding: 5px 9px;
+  border-radius: 20px;
+}
+
+.sockets-list  .online {
+  background: #e4f7ed;
+  color: #168653;
+}
+
+.sockets-list  .offline {
+  background: #f2f2f2;
+  color: #777;
+}
+
+.sockets-list  .socket-info {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.sockets-list  .info-box {
+  background: #f7f9f8;
+  padding: 12px;
+  border-radius: 9px;
+}
+
+.sockets-list  .info-box small {
+  color: #7b8581;
+  font-size: 11px;
+}
+
+.sockets-list  .info-box strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.sockets-list  .control {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sockets-list  .control-text {
+  font-size: 13px;
+  color: #707a76;
+}
+
+.sockets-list  .switch {
+  position: relative;
+  width: 50px;
+  height: 27px;
+}
+
+.sockets-list  .switch input {
+  display: none;
+}
+
+.sockets-list  .slider {
+  position: absolute;
+  inset: 0;
+  background: #cdd4d1;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sockets-list  .slider:before {
+  content: "";
+  position: absolute;
+  height: 21px;
+  width: 21px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.sockets-list  input:checked+.slider {
+  background: #168653;
+}
+
+.sockets-list  input:checked+.slider:before {
+  transform: translateX(23px);
+}
+
+/* ---------- SUMMARY CARDS ---------- */
+
+.sockets-list  .summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.sockets-list  .summary-card {
+  background: white;
+  border: 1px solid #e3e8e5;
+  border-radius: 13px;
+  padding: 20px;
+}
+
+.sockets-list  .summary-card:hover {
+  background: rgb(230, 252, 236);
+  border: 1px solid #008332;
+  border-radius: 13px;
+  padding: 20px;
+}
+
+.sockets-list  .summary-card span {
+  color: #737d79;
+  font-size: 13px;
+}
+
+.sockets-list  .summary-card h2 {
+  margin-top: 9px;
+  font-size: 25px;
+}
+
+.sockets-list  .green {
+  color: #168653;
+}
+
+.sockets-list   .orange {
+  color: #d98519;
+}

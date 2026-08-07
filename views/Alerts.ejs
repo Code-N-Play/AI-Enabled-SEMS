@@ -1,0 +1,78 @@
+<% layout("layouts/boilerplate") %>
+
+<style>
+    .bulb.bulb-on .off{
+        display: none
+    }
+    .bulb.bulb-off .on{
+        display: none
+    }
+</style>
+
+    <div class="container-fluid sockets-list px-3 px-lg-4 py-4">
+        <div class="page-heading">
+            <div class="page-heading-copy">
+                <span class="page-icon"><i class="bi bi-plug" aria-hidden="true"></i></span>
+                <div>
+                    <h1 class="h3 mb-1">Smart Sockets</h1>
+                    <p class="eyebrow mb-1">Monitor and remotely control connected classroom appliances.</p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="summary">
+
+
+
+            <div class="bulb bulb-on">
+                <div class="on">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h1m8-9v1m8 8h1M5.6 5.6l.7.7m12.1-.7l-.7.7M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0-1 3a2 2 0 0 1-4 0a3.5 3.5 0 0 0-1-3m.7 1h4.6" />
+                    </svg>
+                    
+                </div>
+
+                <div class="off">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="currentColor" d="M9 20h6v2H9zm-.83-4.95c.41.62.62 1.36.72 1.95H8v2h8v-2h-.89c.11-.59.31-1.33.72-1.95c.36-.54.76-1.01 1.14-1.46c1-1.18 2.03-2.39 2.03-4.6c0-3.86-3.14-7-7-7s-7 3.14-7 7c0 2.21 1.03 3.42 2.02 4.58c.39.45.78.92 1.15 1.47ZM12 4c2.76 0 5 2.24 5 5c0 1.47-.62 2.2-1.55 3.3c-.4.47-.85 1-1.28 1.64c-.68 1.03-.97 2.23-1.09 3.06h-2.17c-.12-.83-.4-2.03-1.08-3.05c-.43-.65-.89-1.19-1.29-1.66C7.61 11.2 7 10.48 7 9c0-2.76 2.24-5 5-5" />
+                    </svg>
+                </div>
+                
+            </div>
+            
+
+        </div>
+
+         
+
+    </div>
+ 
+    <script>
+
+        const blub = document.querySelector('.bulb');
+
+        const id="6a75c98f8822a9d62dd4545f";
+        setInterval(function(){
+            fetch(`/sockets/${id}`)
+            .then(response => response.json())
+            .then(data => {
+               if(data.isActive){
+                blub.classList.remove('bulb-off');
+                blub.classList.add('bulb-on');
+            }else{
+                blub.classList.remove('bulb-on');
+                   blub.classList.add('bulb-off');
+               }
+               
+            })
+            .catch(error => {
+                
+                console.error('Error -----:', error);
+            });
+        }, 1000);
+
+    </script>

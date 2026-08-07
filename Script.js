@@ -1,10 +1,31 @@
+// if (process.env.NODE_ENV !== 'production') {
+
+//   import dotenv from 'dotenv'
+//   dotenv.config();
+// }
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from 'express'
+import ejsMate from "ejs-mate";
+import mongoose from 'mongoose'
+// const mongoose = require ("mongoose");
+import Socket from "./model/Socket.js";
+import SocketController from "./controllers/api/SocketController.js";
+ 
+
+mongoose.connect(process.env.DATABASE_URL);
+const db = mongoose.connection
+db.on('error', error => console.error(error));
+db.once('open', () => console.log('connected to the user database'));
 
 const app = express()
 app.set ("view engine", "ejs");
+app.engine("ejs", ejsMate);
 app.use(express.static('./public'));
-
+app.use(express.json());
 app.get('/', (req, res) => {
+  
   res.render("home")
 })
 
@@ -12,8 +33,10 @@ app.get('/EnergyMonitoring', (req, res) => {
     res.render("EnergyMonitoring")
 })
 
-app.get('/SmartSockets', (req, res) => {
-    res.render("SmartSockets")
+app.get('/SmartSockets', async (req, res) => {
+  const sockets = await Socket.find();
+
+    res.render("SmartSockets",{sockets:sockets})
 })
   
 app.get('/AiInsights', (req, res) => {
@@ -31,6 +54,11 @@ app.get('/Alerts', (req, res) => {
 app.get('/Settings', (req, res) => {
     res.render("Settings")
 })
+
+app.get("/sockets", SocketController.getAll);
+app.get("/sockets/create", SocketController.create);
+app.get("/sockets/:id", SocketController.show);
+app.patch("/sockets/:id/status", SocketController.updateStatus);
 
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000')
