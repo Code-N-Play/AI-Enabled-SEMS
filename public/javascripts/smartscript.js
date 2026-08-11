@@ -11,11 +11,11 @@ function enableSocketStatusChange(selector){
         const statusBtn = card.querySelector('.status');
 
         s.addEventListener('change', function(){
-            const id = s.getAttribute("data-id");
+            const slug = s.getAttribute("data-slug");
 
-            console.log(s.checked ? 'active' : 'inactive', id);
+            console.log(s.checked ? 'active' : 'inactive', slug);
 
-            fetch(`/sockets/${id}/status`, {
+            fetch(`/sockets/${slug}/status`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

@@ -55,11 +55,26 @@ app.get('/Settings', (req, res) => {
     res.render("Settings")
 })
 
+// create sockets
+
+app.get("/createsocket", async function (req,res) {
+  const cretingsocket = await Socket.create({
+    name:"ClassRoom 102",
+    slug: "socket01"
+  });
+
+  res.send(cretingsocket);
+});
+
 app.get("/sockets", SocketController.getAll);
 app.get("/sockets/create", SocketController.create);
 app.get("/sockets/:id", SocketController.show);
-app.patch("/sockets/:id/status", SocketController.updateStatus);
+app.get("/sockets-update/:slug", SocketController.showViaSlug);
+app.patch("/sockets/:slug/status", SocketController.updateStatus);
 
-app.listen(3000, () => {
+//https://blynk.cloud/external/api/update?token=Vi0sJxv9D5QOeXdTQY4KraatyMXjbtah&V1=1
+//https://blynk.cloud/external/api/get?token=Vi0sJxv9D5QOeXdTQY4KraatyMXjbtah&V1
+
+app.listen(3000,"0.0.0.0", () => {
   console.log('Server is running on http://localhost:3000')
 })

@@ -30,7 +30,18 @@ class SocketController {
 
   static async show(req, res) {
     try {
-      const socket = await Socket.findOne({_id:req.params.id});
+      const socket = await Socket.findOne({ _id: req.params.id });
+
+      res.status(200).json(socket);
+    } catch (err) {
+      res.status(500).json({
+        message: err.message,
+      });
+    }
+  }
+  static async showViaSlug(req, res) {
+    try {
+      const socket = await Socket.findOne({ slug: req.params.slug });
 
       res.status(200).json(socket);
     } catch (err) {
@@ -42,12 +53,12 @@ class SocketController {
 
   static async updateStatus(req, res) {
     try {
-      const { id } = req.params;
+      const { slug } = req.params;
       const { isActive } = req.body;
 
-      const socket = await Socket.findByIdAndUpdate(
-        id,
-        { isActive },
+      const socket = await Socket.findOneAndUpdate(
+        { slug: slug },
+        { isActive: isActive },
         { new: true }
       );
 
@@ -55,6 +66,7 @@ class SocketController {
         return res.status(404).json({
           success: false,
           message: "Socket not found",
+          slug: slug,
         });
       }
 
@@ -63,7 +75,10 @@ class SocketController {
         message: "Socket status updated successfully",
         data: socket,
       });
+
     } catch (err) {
+      console.error(err);
+
       res.status(500).json({
         success: false,
         message: err.message,
