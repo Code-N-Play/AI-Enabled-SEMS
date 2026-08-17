@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="adminHMD professional admin dashboard template">
   <title>Energy Monitoring</title>
 
-  <link rel="stylesheet" href="../stylesheets/bootstrap.min.css"> 
-  <link rel="stylesheet" href="../vendors/bootstrap-icons/bootstrap-icons.css"> 
+  <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendors/bootstrap-icons/bootstrap-icons.css">
   <link rel="stylesheet" href="../stylesheets/style.css">
-  
+
 </head>
 
 <body>
@@ -28,7 +29,7 @@
       </div>
 
       <nav class="sidebar-nav">
-        <a class="nav-link " href="/" >
+        <a class="nav-link " href="/">
           <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
           <span class="nav-text">Dashboard</span>
         </a>
@@ -37,10 +38,10 @@
           <span class="nav-text">Energy Monitoring</span>
         </a>
         <a class="nav-link" href="/SmartSockets">
-            <span class="nav-icon"><i class="bi bi-plug" aria-hidden="true"></i></span>
+          <span class="nav-icon"><i class="bi bi-plug" aria-hidden="true"></i></span>
           <span class="nav-text">Smart Sockets</span>
         </a>
-        
+
         <a class="nav-link" href="/AiInsights">
           <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
           <span class="nav-text">AI Insights</span>
@@ -57,31 +58,35 @@
           <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
           <span class="nav-text">Settings</span>
         </a>
-        
+
       </nav>
 
-     
+
     </aside>
 
     <div class="admin-main">
       <nav class="navbar admin-navbar navbar-expand bg-white">
         <div class="container-fluid px-3 px-lg-4">
-          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-controls="adminSidebar" aria-expanded="true" aria-label="Toggle sidebar">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-controls="adminSidebar"
+            aria-expanded="true" aria-label="Toggle sidebar">
             <span></span>
             <span></span>
             <span></span>
           </button>
 
           <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-            <input class="form-control search-input" type="search" placeholder="Search devices, rooms, alerts..." aria-label="Search">
+            <input class="form-control search-input" type="search" placeholder="Search devices, rooms, alerts..."
+              aria-label="Search">
           </form>
 
           <div class="navbar-actions ms-auto">
-            <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
+            <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme"
+              title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
             <div class="dropdown">
-              <button class="icon-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+              <button class="icon-button" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                aria-label="Notifications">
                 <span class="notification-dot"></span>
                 <i class="bi bi-bell" aria-hidden="true"></i>
               </button>
@@ -102,7 +107,7 @@
               </div>
             </div>
 
-           
+
           </div>
         </div>
       </nav>
@@ -115,11 +120,11 @@
               <div>
                 <h1 class="h3 mb-1">Energy Monitoring</h1>
                 <p class="eyebrow mb-1">Real time energy cunsumption and power metrics</p>
-                
-                
+
+
               </div>
             </div>
-            
+
           </div>
 
           <section class="row g-3 mt-1" aria-label="Dashboard metrics">
@@ -127,7 +132,8 @@
               <article class="metric-card metric-primary">
                 <div class="metric-top">
                   <span class="metric-label">Today's Consumption </span>
-                  <span class="metric-icon"><iconify-icon icon="iconoir:web-window-energy-consumption" noobserver></iconify-icon></span>
+                  <span class="metric-icon"><iconify-icon icon="iconoir:web-window-energy-consumption"
+                      noobserver></iconify-icon></span>
                 </div>
                 <div class="metric-value" class="value">38.6 kWh</div>
                 <div class="metric-meta">
@@ -155,7 +161,8 @@
               <article class="metric-card metric-warning">
                 <div class="metric-top">
                   <span class="metric-label">Energy Saved</span>
-                  <span class="metric-icon"><iconify-icon icon="oui:vis-builder-saved-object" noobserver></iconify-icon></span>
+                  <span class="metric-icon"><iconify-icon icon="oui:vis-builder-saved-object"
+                      noobserver></iconify-icon></span>
                 </div>
                 <div class="metric-value" class="value">11.2 kWh</div>
                 <div class="metric-meta">
@@ -171,7 +178,7 @@
                   <span class="metric-label">Active Sockets</span>
                   <span class="metric-icon"><i class="bi bi-life-preserver" aria-hidden="true"></i></span>
                 </div>
-                <div class="metric-value" class="value" >11 / 12</div>
+                <div class="metric-value" class="value">11 / 12</div>
                 <div class="metric-meta">
                   <span class="text-danger">01</span>
                   <span>sockets inactive</span>
@@ -185,8 +192,9 @@
               <div class="panel">
                 <div class="panel-header">
                   <div>
-                    <h2 class="h5 mb-1 section-title"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span>Energy Usage (Today)</span></h2>
-                    
+                    <h2 class="h5 mb-1 section-title"><i class="bi bi-graph-up-arrow"
+                        aria-hidden="true"></i><span>Energy Usage (Today)</span></h2>
+
                   </div>
                   <a class="btn btn-light btn-sm" href="charts.html">View Details</a>
                 </div>
@@ -198,58 +206,53 @@
                   <div class="chart-column bar-72"><span></span><small>12:00 PM</small></div>
                   <div class="chart-column bar-66"><span></span><small>01:00 PM</small></div>
                   <div class="chart-column bar-83"><span></span><small>02:00 PM</small></div>
-                  
+
                 </div>
               </div>
             </div>
 
-           
+
           </section>
 
           <section class="panel mt-3">
             <div class="panel-header">
               <div>
-                <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Room-wise Energy Monitoring</span></h2>
-                
+                <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Room-wise Energy
+                    Monitoring</span></h2>
+
               </div>
-              <a class="btn btn-outline-secondary btn-sm" >Live data</a>
+              <a class="btn btn-outline-secondary btn-sm">Live data</a>
             </div>
             <div class="table-responsive">
               <table class="table align-middle mb-0">
-                <thead><tr><th scope="col">Rooms</th><th scope="col">Occupancy</th><th scope="col">Power</th><th scope="col">Today's Usage</th><th scope="col">AI Status</th></tr></thead>
+                <thead>
+                  <tr>
+                    <th scope="col">Rooms</th>
+                    <th scope="col">Occupancy</th>
+                    <th scope="col">Power</th>
+                    <th scope="col">Today's Usage</th>
+                    <th scope="col">AI Status</th>
+                  </tr>
+                </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Classroom 101</strong></td>
-                        <td>Occupied</td>
-                        <td>0.82 kW</td>
-                        <td>8.4 kWh</td>
-                        <td><span class="status normal">Normal</span></td>
-                    </tr>
-    
-                    <tr>
-                        <td><strong>Classroom 102</strong></td>
-                        <td>Empty</td>
-                        <td>0.64 kW</td>
-                        <td>7.8 kWh</td>
-                        <td><span class="status danger">Waste Detected</span></td>
-                    </tr>
-    
-                    <tr>
-                        <td><strong>Classroom 103</strong></td>
-                        <td>Occupied</td>
-                        <td>0.91 kW</td>
-                        <td>9.1 kWh</td>
-                        <td><span class="status normal">Normal</span></td>
-                    </tr>
-    
-                    <tr>
-                        <td><strong>Lab 201</strong></td>
-                        <td>Partially Occupied</td>
-                        <td>0.47 kW</td>
-                        <td>6.2 kWh</td>
-                        <td><span class="status warning">Check Usage</span></td>
-                    </tr>
-    
+                  <tr>
+                    <td><strong>Classroom 101</strong></td>
+                    <td>Occupied</td>
+                    <td>0.82 kW</td>
+                    <td>8.4 kWh</td>
+                    <td><span class="status normal">Normal</span></td>
+                  </tr>
+
+                  <tr>
+                    <td><strong>Classroom 102</strong></td>
+                    <td>Empty</td>
+                    <td>0.64 kW</td>
+                    <td>7.8 kWh</td>
+                    <td><span class="status danger">Waste Detected</span></td>
+                  </tr>
+
+
+
                 </tbody>
               </table>
             </div>
@@ -259,8 +262,10 @@
 
       <footer class="admin-footer">
         <div class="container-fluid px-3 px-lg-4">
-          <span>Copyright Code-N-Play <br> Developed by <a target="_blank" class="fw-bold text-success" href="https://github.com/HasanMahmudDev">Neeraj</a> • Distributed by <a target="_blank" class="fw-bold text-success" href="https://themewagon.com">Code-N-Play</a> </span>
-          
+          <span>Copyright Code-N-Play <br> Developed by <a target="_blank" class="fw-bold text-success"
+              href="https://code-n-play.github.io/FUTURE_FS_01/">Neeraj</a> • Distributed by <a target="_blank"
+              class="fw-bold text-success" href="https://github.com/Code-N-Play">Code-N-Play</a> </span>
+
         </div>
       </footer>
     </div>
@@ -273,22 +278,22 @@
 
     dateSelect.addEventListener("change", function () {
 
-        console.log("Selected period:", this.value);
+      console.log("Selected period:", this.value);
 
-        // Later you can connect this with your backend/API
-        // to load actual energy data.
+      // Later you can connect this with your backend/API
+      // to load actual energy data.
     });
 
 
     // Demo live power update
     setInterval(() => {
 
-        const power = (2.5 + Math.random() * 0.7).toFixed(2);
+      const power = (2.5 + Math.random() * 0.7).toFixed(2);
 
-        const powerCards = document.querySelectorAll(".value");
+      const powerCards = document.querySelectorAll(".value");
 
-        // Current Power is the second card
-        powerCards[1].innerText = power + " kW";
+      // Current Power is the second card
+      powerCards[1].innerText = power + " kW";
 
     }, 5000);
 
@@ -296,7 +301,8 @@
 
   <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
 
-  <script src="../javascripts/bootstrap.bundle.min.js"></script> 
+  <script src="../javascripts/bootstrap.bundle.min.js"></script>
   <script src="../javascripts/main.js"></script>
 </body>
+
 </html>

@@ -10,32 +10,32 @@
     </div>
 
     <nav class="sidebar-nav">
-        <a class="nav-link active" href="/" aria-current="page">
+        <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/" aria-current="page">
             <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
             <span class="nav-text">Dashboard</span>
         </a>
-        <a class="nav-link" href="/EnergyMonitoring">
+        <a class="nav-link <%= currentPath === '/EnergyMonitoring' ? 'active' : '' %>" href="/EnergyMonitoring">
             <span class="nav-icon"><i class="bi bi-power" aria-hidden="true"></i></span>
             <span class="nav-text">Energy Monitoring</span>
         </a>
-        <a class="nav-link" href="/SmartSockets">
+        <a class="nav-link <%= currentPath === '/SmartSockets' ? 'active' : '' %>" href="/SmartSockets">
             <span class="nav-icon"><i class="bi bi-plug" aria-hidden="true"></i></span>
             <span class="nav-text">Smart Sockets</span>
         </a>
 
-        <a class="nav-link" href="/AiInsights">
+        <a class="nav-link <%= currentPath === '/AiInsights' ? 'active' : '' %>" href="/AiInsights">
             <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
             <span class="nav-text">AI Insights</span>
         </a>
-        <a class="nav-link" href="/Analytics">
+        <a class="nav-link <%= currentPath === '/Analytics' ? 'active' : '' %>" href="/Analytics">
             <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
             <span class="nav-text">Analytics</span>
         </a>
-        <a class="nav-link" href="/Alerts">
+        <a class="nav-link <%= currentPath === '/Alerts' ? 'active' : '' %>" href="/Alerts">
             <span class="nav-icon"><i class="bi bi-bell" aria-hidden="true"></i></span>
             <span class="nav-text">Alerts</span>
         </a>
-        <a class="nav-link" href="/Settings">
+        <a class="nav-link <%= currentPath === '/Settings' ? 'active' : '' %>" href="/Settings">
             <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
             <span class="nav-text">Settings</span>
         </a>

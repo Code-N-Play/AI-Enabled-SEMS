@@ -24,10 +24,14 @@ app.set ("view engine", "ejs");
 app.engine("ejs", ejsMate);
 app.use(express.static('./public'));
 app.use(express.json());
+app.use((req, res, next) => { 
+  res.locals.currentPath = req.path;  
+  next();
+});
+
 app.get('/', (req, res) => {
-  
   res.render("home")
-})
+});
 
 app.get('/EnergyMonitoring', (req, res) => {
     res.render("EnergyMonitoring")
@@ -74,6 +78,8 @@ app.patch("/sockets/:slug/status", SocketController.updateStatus);
 
 //https://blynk.cloud/external/api/update?token=Vi0sJxv9D5QOeXdTQY4KraatyMXjbtah&V1=1
 //https://blynk.cloud/external/api/get?token=Vi0sJxv9D5QOeXdTQY4KraatyMXjbtah&V1
+
+
 
 app.listen(3000,"0.0.0.0", () => {
   console.log('Server is running on http://localhost:3000')
