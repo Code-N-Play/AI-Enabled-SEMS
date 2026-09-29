@@ -28,4 +28,4 @@ An AI powerd IoT System that monitors classroom occupancy and energy usage, auto
 
 " IT IS NOT FULLY READY YET........ "
 
-socket control is now available 
+socket control is now available stil not completed 
